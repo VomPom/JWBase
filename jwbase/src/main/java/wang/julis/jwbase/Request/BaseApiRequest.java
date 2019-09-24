@@ -5,6 +5,8 @@ import android.text.TextUtils;
 
 import com.android.volley.ParseError;
 import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
@@ -41,8 +43,18 @@ public abstract class BaseApiRequest<T> {
 
     protected StringRequest getStringRequest() {
         return new StringRequest(requestMethod, getRequestUrl(),
-                response -> parseJson(response),
-                error -> requestListener.onError(error)) {
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        BaseApiRequest.this.parseJson(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        requestListener.onError(error);
+                    }
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 return mEntityParams;

@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import wang.julis.jwbase.LoadingDialog.LoadingDialog;
+
 /*******************************************************
  *
  * Created by julis.wang on 2019/04/29 10:03
@@ -19,6 +21,7 @@ import android.view.WindowManager;
  *******************************************************/
 
 public abstract class BaseActivity extends AppCompatActivity {
+    private LoadingDialog loadingDialog;
 
     private static final String TAG = "BaseActivity";
 
@@ -69,6 +72,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(this);
         }
     }
 
@@ -122,5 +128,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void setScreenRoate(boolean isAllowScreenRoate) {
         this.isAllowScreenRotate = isAllowScreenRoate;
     }
-
+    public void showLoadingDialog() {
+        loadingDialog.showLoading();
+    }
+    public void stopLoadingDialog() {
+        loadingDialog.stopLoading();
+    }
 }
