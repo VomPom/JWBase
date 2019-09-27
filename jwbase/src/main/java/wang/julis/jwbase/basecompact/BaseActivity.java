@@ -134,4 +134,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void stopLoadingDialog() {
         loadingDialog.stopLoading();
     }
+
+//    public void requsetPermission() {
+//        AndPermission.with(this)
+//                .runtime()
+//                .permission(Permission.Group.STORAGE)
+//                .onGranted(permissions -> {
+//                    // Storage permission are allowed.
+//                })
+//                .onDenied(permissions -> {
+//                    // Storage permission are not allowed.
+//                })
+//                .start();
+//    }
 }

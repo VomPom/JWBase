@@ -17,8 +17,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = '1.7'
-        targetCompatibility = '1.7'
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
 }
 
@@ -29,6 +29,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.victor:lib:1.0.4'
+    implementation 'com.yanzhenjie.permission:support:2.0.1'
     api 'com.google.code.gson:gson:2.8.5'
     api 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     api 'com.google.zxing:core:3.3.3'
