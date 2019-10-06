@@ -2,7 +2,6 @@ package wang.julis.jwbase.Request;
 
 import android.text.TextUtils;
 
-
 import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,7 +21,6 @@ import wang.julis.jwbase.Utils.JsonUtils;
 import wang.julis.jwbase.Utils.ToastUtils;
 
 
-
 public abstract class BaseApiRequest<T> {
 
     protected Map<String, String> mUrlParams;
@@ -31,14 +29,17 @@ public abstract class BaseApiRequest<T> {
 
     private int requestMethod = Request.Method.GET;
 
-    public BaseApiRequest(RequestListener<T> requestListener) {
-        this.requestListener = requestListener;
+    public BaseApiRequest() {
         mUrlParams = new HashMap<>();
         mEntityParams = new HashMap<>();
     }
 
     public void setRequestMethodPost() {
         requestMethod = Request.Method.POST;
+    }
+
+    public void setRequestListener(RequestListener<T> requestListener) {
+        this.requestListener = requestListener;
     }
 
     protected StringRequest getStringRequest() {
@@ -52,7 +53,9 @@ public abstract class BaseApiRequest<T> {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        requestListener.onError(error);
+                        if (requestListener != null) {
+                            requestListener.onError(error);
+                        }
                     }
                 }) {
             @Override
@@ -106,6 +109,12 @@ public abstract class BaseApiRequest<T> {
         try {
             JSONObject jsonObject = new JSONObject(response);
 
+            if (!jsonObject.has("data")) { //走普通解析
+                parseResponse(jsonObject.toString());
+                return;
+
+            }
+
             String resultString = jsonObject.getString("data");
 
             if (jsonObject.has("code")) {
@@ -117,22 +126,29 @@ public abstract class BaseApiRequest<T> {
 
             if (responseCode == 200 || errorCode == 0) {
                 if (!TextUtils.isEmpty(response)) {
-                    Type type = getTType(requestListener.getClass());
-                    //泛型是实体或者List等类型
-                    T t = JsonUtils.fromJson(resultString, type);
-                    requestListener.onSuccess(t);
+                    parseResponse(resultString);
                     return;
                 }
                 ToastUtils.showToast("Data is empty!");
             }
             ToastUtils.showToast("Response code is error.");
-            requestListener.onError(new ParseError());
+            if (requestListener != null) {
+                requestListener.onError(new ParseError());
+            }
+
         } catch (JSONException e) {
             ToastUtils.showToast(e.toString());
             e.printStackTrace();
         }
     }
-
+    private void parseResponse(String dataString) {
+        if (requestListener != null) {
+            Type type = getTType(requestListener.getClass());
+            //泛型是实体或者List等类型
+            T t = JsonUtils.fromJson(dataString, type);
+            requestListener.onSuccess(t);
+        }
+    }
     /**
      * 获取回调接口中 T 的具体类型
      *
@@ -150,7 +166,6 @@ public abstract class BaseApiRequest<T> {
         }
         return null;
     }
-
 
 
 }
