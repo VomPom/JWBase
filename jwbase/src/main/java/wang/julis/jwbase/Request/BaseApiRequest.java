@@ -23,7 +23,7 @@ import wang.julis.jwbase.Utils.ToastUtils;
 
 public abstract class BaseApiRequest<T> {
 
-    protected Map<String, String> mUrlParams;
+    protected Map<String, Object> mUrlParams;
     protected Map<String, String> mEntityParams;
     private RequestListener<T> requestListener;
 
@@ -80,12 +80,12 @@ public abstract class BaseApiRequest<T> {
     public String getRequestUrl() {
         StringBuilder url = new StringBuilder(getBaseUrl());
         if (requestMethod == Request.Method.GET) {
-            Iterator iter = mUrlParams.entrySet().iterator();
+            Iterator iterator = mUrlParams.entrySet().iterator();
             if (url.indexOf("?") < 0) {
                 url.append("?");
             }
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
+            while (iterator.hasNext()) {
+                Map.Entry entry = (Map.Entry) iterator.next();
                 Object key = entry.getKey();
                 Object val = entry.getValue();
 
@@ -112,7 +112,6 @@ public abstract class BaseApiRequest<T> {
             if (!jsonObject.has("data")) { //走普通解析
                 parseResponse(jsonObject.toString());
                 return;
-
             }
 
             String resultString = jsonObject.getString("data");
@@ -149,6 +148,7 @@ public abstract class BaseApiRequest<T> {
             requestListener.onSuccess(t);
         }
     }
+
     /**
      * 获取回调接口中 T 的具体类型
      *
@@ -167,5 +167,9 @@ public abstract class BaseApiRequest<T> {
         return null;
     }
 
+    public void putParams(String key, Object value) {
+        mUrlParams.put(key,value);
+        mEntityParams.put(key, String.valueOf(value));
+    }
 
 }

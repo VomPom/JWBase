@@ -9,6 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import wang.julis.jwbase.LoadingDialog.LoadingDialog;
+import wang.julis.jwbase.Request.BaseApiRequest;
+import wang.julis.jwbase.Request.RequestQueueUtils;
+
 /*******************************************************
  *
  * Created by julis.wang@beibei.com on 2019/09/27 11:41
@@ -21,7 +25,7 @@ import android.view.ViewGroup;
 public abstract class BaseFragment extends Fragment {
     private View mContentView;
     private Context mContext;
-
+    private LoadingDialog loadingDialog;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,6 +34,9 @@ public abstract class BaseFragment extends Fragment {
         init();
         initView();
         initData();
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(mContext);
+        }
         return mContentView;
     }
 
@@ -65,4 +72,18 @@ public abstract class BaseFragment extends Fragment {
     public Context getMContext() {
         return mContext;
     }
+
+    protected void addRequestToQueue(BaseApiRequest request) {
+        RequestQueueUtils.getInstance().addRequestToQueue(request);
+    }
+    public void showLoadingDialog() {
+        loadingDialog.showLoading();
+    }
+    public void showLoadingDialog(String loadingText) {
+        loadingDialog.showLoading(loadingText);
+    }
+    public void stopLoadingDialog() {
+        loadingDialog.stopLoading();
+    }
+
 }

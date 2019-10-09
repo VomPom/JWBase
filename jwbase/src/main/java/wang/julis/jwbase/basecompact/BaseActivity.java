@@ -10,7 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.githang.statusbar.StatusBarCompat;
+
 import wang.julis.jwbase.LoadingDialog.LoadingDialog;
+import wang.julis.jwbase.R;
+import wang.julis.jwbase.Request.BaseApiRequest;
+import wang.julis.jwbase.Request.RequestQueueUtils;
+import wang.julis.jwbase.Utils.StatusBarUtils;
 
 /*******************************************************
  *
@@ -62,9 +68,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             setFullScreen();
         }
         setContentView(getContentView());
+
         initView();
         initData();
         ctx = this;
+        setStatusBar(getColor(R.color.transparent), true);
         if (isSetStatusBar) {
             steepStatusBar();
         }
@@ -77,6 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (loadingDialog == null) {
             loadingDialog = new LoadingDialog(this);
         }
+
     }
 
     /**
@@ -101,6 +110,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().addFlags(
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
+
     }
 
     /**
@@ -129,25 +139,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void setScreenRoate(boolean isAllowScreenRoate) {
         this.isAllowScreenRotate = isAllowScreenRoate;
     }
+
     public void showLoadingDialog() {
         loadingDialog.showLoading();
     }
+
     public void stopLoadingDialog() {
         loadingDialog.stopLoading();
     }
-
-//    public void requsetPermission() {
-//        AndPermission.with(this)
-//                .runtime()
-//                .permission(Permission.Group.STORAGE)
-//                .onGranted(permissions -> {
-//                    // Storage permission are allowed.
-//                })
-//                .onDenied(permissions -> {
-//                    // Storage permission are not allowed.
-//                })
-//                .start();
-//    }
 
     /**
      * 设置 actionBar title 以及 up 按钮事件
@@ -167,4 +166,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void addRequestToQueue(BaseApiRequest request) {
+        RequestQueueUtils.getInstance().addRequestToQueue(request);
+    }
+
+    protected void setStatusBar(int color, boolean lightStatusBar) {
+        StatusBarCompat.setStatusBarColor(this, color, lightStatusBar);
+    }
 }

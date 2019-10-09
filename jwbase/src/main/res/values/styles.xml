@@ -1,11 +1,13 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="JWAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
     </style>
 
     <style name="radioGroupButtonStyle">
@@ -79,6 +81,29 @@
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>
     </style>
-
-
+    <style name="toolbarTitleTheme">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <declare-styleable name="ZWCalendarView">
+        <attr name="weekHeight" />
+        <attr name="weekTextSize" />
+        <attr name="weekBackgroundColor" />
+        <attr name="weekTextColor" />
+        <attr name="calendarTextSize" />
+        <attr name="calendarTextColor" />
+        <attr name="isShowOtherMonth" format="boolean" />
+        <attr name="otherMonthTextColor" format="color" />
+        <attr name="isShowLunar" />
+        <attr name="lunarTextColor" />
+        <attr name="lunarTextSize" />
+        <attr name="todayTextColor" />
+        <attr name="selectColor" format="color" />
+        <attr name="selectTextColor" format="color" />
+        <attr name="signIconSuccessId" format="integer" />
+        <attr name="signIconErrorId" format="integer" />
+        <attr name="signIconSize" format="dimension" />
+        <attr name="signTextColor" />
+        <attr name="limitFutureMonth" />
+    </declare-styleable>
 </resources>

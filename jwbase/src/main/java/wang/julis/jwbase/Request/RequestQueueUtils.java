@@ -12,6 +12,7 @@ import wang.julis.jwbase.basecompact.NaApplication;
  * <p>
  * Description:
  */
+
 public class RequestQueueUtils {
     private static RequestQueue mQueue;
     private static RequestQueueUtils mRequest;

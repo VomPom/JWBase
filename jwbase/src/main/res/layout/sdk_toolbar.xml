@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolbarColor"
+        app:titleTextAppearance="@style/toolbarTitleTheme">
+
+        <ImageView
+            android:id="@+id/iv_left_icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_back_arrow" />
+
+        <TextView
+            android:id="@+id/tv_left_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:maxEms="5"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/bar_text_size"
+            android:visibility="gone"
+            tools:text="标题"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_right_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_right_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:maxEms="5"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/bar_text_size"
+            android:visibility="gone"
+            tools:text="右边标题"
+            tools:visibility="visible" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>
