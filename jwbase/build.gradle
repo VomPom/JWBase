@@ -7,7 +7,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
     buildTypes {
@@ -24,17 +24,25 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.victor:lib:1.0.4'
     implementation 'com.yanzhenjie.permission:support:2.0.1'
-    implementation 'com.githang:status-bar-compat:latest.integration'
     api 'com.google.code.gson:gson:2.8.5'
     api 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     api 'com.google.zxing:core:3.3.3'
     api 'de.hdodenhof:circleimageview:3.0.1'
-    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation ('com.google.code.gson:gson:2.8.6') {
+        force = true //强制使用这个版本的库
+    }
+    implementation ('de.hdodenhof:circleimageview:3.0.1') {
+        transitive = true //防止向外暴露
+    }
+    implementation('com.wanjian:sak:0.1.0') {
+        exclude group: 'com.android.support', module: 'appcompat-v7' //排除里面不需要的库
+    }
 
 }

@@ -3,11 +3,12 @@ package wang.julis.jwbase.basecompact;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import wang.julis.jwbase.LoadingDialog.LoadingDialog;
 import wang.julis.jwbase.Request.BaseApiRequest;
@@ -15,7 +16,7 @@ import wang.julis.jwbase.Request.RequestQueueUtils;
 
 /*******************************************************
  *
- * Created by julis.wang@beibei.com on 2019/09/27 11:41
+ * Created by julis.wang on 2019/09/27 11:41
  *
  * Description :
  * History   :

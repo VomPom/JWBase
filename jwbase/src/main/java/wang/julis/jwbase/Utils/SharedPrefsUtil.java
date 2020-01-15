@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 /*******************************************************
  *
- * Created by julis.wang@beibei.com on 2019/09/27 11:41
+ * Created by julis.wang on 2019/09/27 11:41
  *
  * Description :
  * History   :

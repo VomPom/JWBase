@@ -19,7 +19,7 @@ import wang.julis.jwbase.basecompact.NaApplication;
 
 /*******************************************************
  *
- * Created by julis.wang@beibei.com on 2019/09/23 11:36
+ * Created by julis.wang on 2019/09/23 11:36
  *
  * Description :
  * History   :

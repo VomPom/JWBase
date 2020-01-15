@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import wang.julis.jwbase.R;
 
 /*******************************************************
  *
- * Created by julis.wang@beibei.com on 2019/10/08 10:05
+ * Created by julis.wang on 2019/10/08 10:05
  *
  * Description :
  * History   :

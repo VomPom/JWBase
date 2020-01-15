@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 
 /*******************************************************
  *
- * Created by julis.wang@beibei.com on 2019/10/08 18:41
+ * Created by julis.wang on 2019/10/08 18:41
  *
  * Description :
  * History   :

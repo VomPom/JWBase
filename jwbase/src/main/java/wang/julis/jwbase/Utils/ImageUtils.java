@@ -22,7 +22,7 @@ import java.io.OutputStream;
 
 /*******************************************************
  *
- * Created by julis.wang@beibei.com on 2019/09/23 15:24
+ * Created by julis.wang on 2019/09/23 15:24
  *
  * Description :
  * History   :

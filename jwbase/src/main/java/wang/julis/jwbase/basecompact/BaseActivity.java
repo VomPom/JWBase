@@ -4,19 +4,16 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.githang.statusbar.StatusBarCompat;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import wang.julis.jwbase.LoadingDialog.LoadingDialog;
-import wang.julis.jwbase.R;
 import wang.julis.jwbase.Request.BaseApiRequest;
 import wang.julis.jwbase.Request.RequestQueueUtils;
-import wang.julis.jwbase.Utils.StatusBarUtils;
 
 /*******************************************************
  *
@@ -72,7 +69,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         initData();
         ctx = this;
-        setStatusBar(getColor(R.color.transparent), true);
         if (isSetStatusBar) {
             steepStatusBar();
         }
@@ -170,7 +166,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         RequestQueueUtils.getInstance().addRequestToQueue(request);
     }
 
-    protected void setStatusBar(int color, boolean lightStatusBar) {
-        StatusBarCompat.setStatusBarColor(this, color, lightStatusBar);
-    }
+
 }

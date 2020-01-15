@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.v4.util.ArraySet;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.Calendar;
 import java.util.HashMap;
