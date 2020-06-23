@@ -1,13 +1,10 @@
 package wang.julis.jwbase.Utils;
 
 
-import android.util.JsonReader;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.lang.reflect.Type;
-
 /**
  * Created by Julis on 2019/01/31 16:09
  * <p>
@@ -21,6 +18,7 @@ public class JsonUtils {
         if (null == mGson) {
             mGson = new GsonBuilder().serializeNulls().disableHtmlEscaping().create();
         }
+
         return mGson;
     }
 
