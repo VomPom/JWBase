@@ -86,12 +86,19 @@ def glide_deps = [
         okhttp3_integration: "com.github.bumptech.glide:okhttp3-integration:$glide_version"
 ]
 
+def test_deps = [
+        junit    : "junit:junit:4.+",
+        junit_ext: "androidx.test.ext:junit:1.1.3",
+        espresso : "androidx.test.espresso:espresso-core:3.4.0"
+]
+
 
 ext.Deps = [
-        kotlin      : kotlin_deps,
-        android     : android_deps,
-        androidx    : androidx_deps,
-        google      : google_deps,
-        glide       : glide_deps,
-        square      : square_deps,
+        kotlin  : kotlin_deps,
+        android : android_deps,
+        androidx: androidx_deps,
+        google  : google_deps,
+        glide   : glide_deps,
+        square  : square_deps,
+        test    : test_deps,
 ]
