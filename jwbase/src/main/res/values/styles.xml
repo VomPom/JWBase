@@ -85,25 +85,5 @@
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
-    <declare-styleable name="ZWCalendarView">
-        <attr name="weekHeight" />
-        <attr name="weekTextSize" />
-        <attr name="weekBackgroundColor" />
-        <attr name="weekTextColor" />
-        <attr name="calendarTextSize" />
-        <attr name="calendarTextColor" />
-        <attr name="isShowOtherMonth" format="boolean" />
-        <attr name="otherMonthTextColor" format="color" />
-        <attr name="isShowLunar" />
-        <attr name="lunarTextColor" />
-        <attr name="lunarTextSize" />
-        <attr name="todayTextColor" />
-        <attr name="selectColor" format="color" />
-        <attr name="selectTextColor" format="color" />
-        <attr name="signIconSuccessId" format="integer" />
-        <attr name="signIconErrorId" format="integer" />
-        <attr name="signIconSize" format="dimension" />
-        <attr name="signTextColor" />
-        <attr name="limitFutureMonth" />
-    </declare-styleable>
+
 </resources>

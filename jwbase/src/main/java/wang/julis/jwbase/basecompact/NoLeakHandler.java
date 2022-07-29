@@ -34,4 +34,5 @@ public class NoLeakHandler extends Handler {
     public interface MessageHandler {
         void handleMessage(Message msg);
     }
+
 }

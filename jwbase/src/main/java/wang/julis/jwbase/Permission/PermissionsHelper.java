@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
@@ -47,7 +48,7 @@ public class PermissionsHelper {
     }
 
     public static void showSettingPermissionsDialog(Activity context, @StringRes int messageResId, boolean finishCurrentActivity) {
-        showSettingPermissionsDialog(context, messageResId, finishCurrentActivity, (PermissionsHelper.NegativeCallBack)null);
+        showSettingPermissionsDialog(context, messageResId, finishCurrentActivity, (PermissionsHelper.NegativeCallBack) null);
     }
 
     public interface NegativeCallBack {
