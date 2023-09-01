@@ -65,9 +65,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             setFullScreen();
         }
         setContentView(getContentView());
-
-        initView();
         initData();
+        initView();
         ctx = this;
         if (isSetStatusBar) {
             steepStatusBar();
@@ -89,8 +88,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private void setFullScreen() {
         this.getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
@@ -101,10 +100,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // 透明状态栏
             getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             // 透明导航栏
             getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
 
     }

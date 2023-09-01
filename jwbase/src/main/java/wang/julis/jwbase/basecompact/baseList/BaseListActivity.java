@@ -42,7 +42,7 @@ public abstract class BaseListActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        submitActivityList();
     }
 
     protected void addActivity(String activityName, Class<?> activityClass) {
